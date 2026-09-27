@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atelier North — Client Operations Workspace</title>
+<style>
+:root{--ink:#17201d;--muted:#78817d;--line:#e7e8e3;--paper:#f7f7f3;--card:#fff;--accent:#b58a48;--green:#214d43;--soft:#eef2ed;--shadow:0 18px 55px rgba(20,30,25,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button{font:inherit}.app{display:flex;min-height:100vh}.side{width:250px;background:#fbfbf8;border-right:1px solid var(--line);padding:24px 18px;position:fixed;inset:0 auto 0 0}.brand{display:flex;align-items:center;gap:10px;padding:6px 10px 30px;font-weight:700;letter-spacing:.08em}.mark{width:30px;height:30px;border:1px solid #a9ada7;border-radius:50%;display:grid;place-items:center;font-size:13px}.nav{display:grid;gap:5px}.nav button{border:0;background:none;text-align:left;padding:12px 13px;border-radius:11px;color:#6d7571;cursor:pointer}.nav button.active,.nav button:hover{background:#edf1ed;color:var(--green)}.nav small{display:block;text-transform:uppercase;letter-spacing:.14em;color:#a3a8a4;padding:22px 13px 7px;font-size:9px}.profile{position:absolute;bottom:20px;left:18px;right:18px;border-top:1px solid var(--line);padding:16px 8px;display:flex;gap:10px;align-items:center}.avatar{width:34px;height:34px;border-radius:50%;background:#d9ded8;display:grid;place-items:center;font-weight:700}.main{margin-left:250px;width:calc(100% - 250px);padding:30px 38px 50px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:10px;color:var(--muted)}h1{font-family:Georgia,serif;font-weight:500;font-size:36px;margin:7px 0}.top-actions{display:flex;gap:9px}.btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;color:#45504b;cursor:pointer}.btn.dark{background:var(--green);border-color:var(--green);color:#fff}.hero{border-radius:20px;min-height:255px;padding:30px;display:flex;align-items:flex-end;position:relative;overflow:hidden;background:linear-gradient(110deg,#213f38,#7b836a);box-shadow:var(--shadow)}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 25%,rgba(255,255,255,.25),transparent 35%),linear-gradient(135deg,transparent 35%,rgba(255,255,255,.08));}.hero-copy{position:relative;color:#fff;max-width:650px}.hero-copy h2{font:500 42px Georgia,serif;margin:6px 0 8px}.hero-copy p{margin:0;color:rgba(255,255,255,.8)}.hero-meta{position:absolute;right:25px;top:25px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(10px);padding:12px 15px;border-radius:12px;color:white}.grid{display:grid;grid-template-columns:1.45fr .8fr;gap:18px;margin-top:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:21px;box-shadow:0 8px 28px rgba(20,30,25,.035)}.card h3{font-size:15px;margin:0 0 15px}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.link{color:var(--green);font-size:12px;cursor:pointer}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{background:#f8f9f6;border:1px solid var(--line);padding:14px;border-radius:12px}.stat b{font-size:22px}.stat span{display:block;color:var(--muted);font-size:11px;margin-top:4px}.progress{height:7px;background:#e8ece7;border-radius:99px;overflow:hidden;margin:12px 0}.progress i{display:block;height:100%;background:var(--accent);width:68%;border-radius:99px}.timeline{display:grid;gap:0}.event{display:grid;grid-template-columns:62px 1fr 70px;gap:14px;padding:15px 0;border-top:1px solid var(--line);align-items:center}.event:first-child{border-top:0}.date{font-size:11px;color:var(--muted)}.event b{font-size:13px}.event p{margin:4px 0 0;color:var(--muted);font-size:11px}.tag{justify-self:end;padding:5px 8px;border-radius:99px;font-size:10px;background:#edf4ec;color:#47714f}.tag.pending{background:#fbf2df;color:#956e2d}.rows{display:grid;gap:10px}.row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.row .left{display:flex;gap:10px;align-items:center}.ico{width:35px;height:35px;border-radius:10px;background:#f0f2ed;display:grid;place-items:center}.row b{font-size:12px}.row small{display:block;color:var(--muted);margin-top:3px}.money{font-weight:700;font-size:13px}.tabs{display:flex;gap:7px;overflow:auto;margin:22px 0 12px}.tab{padding:9px 13px;border:1px solid var(--line);background:#fff;border-radius:99px;color:#69736e;font-size:12px;cursor:pointer}.tab.on{background:var(--green);color:#fff;border-color:var(--green)}.page{display:none}.page.on{display:block}.toast{position:fixed;right:25px;bottom:25px;background:#18221e;color:#fff;padding:13px 16px;border-radius:11px;box-shadow:var(--shadow);display:none;font-size:12px}.ops{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.ops .card{padding:17px}.list{display:grid;gap:8px}.listitem{display:grid;grid-template-columns:1fr auto;gap:10px;padding:13px;border:1px solid var(--line);border-radius:11px}.listitem small{color:var(--muted)}@media(max-width:950px){.side{width:72px}.brand span,.nav button span,.nav small,.profile .name{display:none}.main{margin-left:72px;width:calc(100% - 72px);padding:22px}.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.hero-copy h2{font-size:32px}}@media(max-width:620px){.main{padding:15px}.top-actions{display:none}.stats,.ops{grid-template-columns:1fr 1fr}.event{grid-template-columns:48px 1fr}.tag{display:none}.hero{min-height:230px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand"><div class="mark">AN</div><span>ATELIER NORTH</span></div>
+  <nav class="nav">
+    <small>Workspace</small>
+    <button class="active" data-page="overview">◉ <span>Overview</span></button>
+    <button data-page="journey">◇ <span>Journey</span></button>
+    <button data-page="documents">□ <span>Documents</span></button>
+    <button data-page="payments">◌ <span>Payments</span></button>
+    <button data-page="messages">◫ <span>Messages</span></button>
+    <small>Operations</small>
+    <button data-page="operations">▦ <span>Operations</span></button>
+  </nav>
+  <div class="profile"><div class="avatar">R</div><div class="name"><b style="font-size:12px">Riyaz</b><small style="display:block;color:#8a928e">Client workspace</small></div></div>
+</aside>
+
+<main class="main">
+<header class="top"><div><div class="eyebrow">Client workspace · live</div><h1 id="title">Good morning, Riyaz</h1></div><div class="top-actions"><button class="btn" onclick="toast('Preview link copied')">Share preview</button><button class="btn dark" onclick="toast('Message sent to your team')">Message team</button></div></header>
+
+<section class="page on" id="overview">
+  <div class="hero">
+    <div class="hero-copy"><div class="eyebrow" style="color:#d8dfd7">Your current journey</div><h2>One place for everything that matters.</h2><p>Plans, people, documents, payments and updates — connected to the same client journey.</p></div>
+    <div class="hero-meta">Status · <b>In progress</b><br><small>Last update 12 min ago</small></div>
+  </div>
+  <div class="card" style="margin-top:18px"><div class="section-head"><h3>Journey at a glance</h3><span class="link" onclick="nav('journey')">Open journey →</span></div><div class="stats"><div class="stat"><b>18</b><span>Tasks completed</span></div><div class="stat"><b>06</b><span>Documents</span></div><div class="stat"><b>03</b><span>Open items</span></div><div class="stat"><b>68%</b><span>Overall progress</span></div></div><div class="progress"><i></i></div></div>
+  <div class="grid">
+    <div class="card"><div class="section-head"><h3>Upcoming</h3><span class="link">View all</span></div><div class="timeline">
+      <div class="event"><div class="date">TODAY<br>10:30</div><div><b>Final details confirmed</b><p>Team review · 3 items waiting for approval</p></div><span class="tag pending">Needs you</span></div>
+      <div class="event"><div class="date">TOMORROW<br>14:00</div><div><b>Planning call</b><p>45 min · Your project team</p></div><span class="tag">Scheduled</span></div>
+      <div class="event"><div class="date">02 OCT<br>09:00</div><div><b>Next milestone</b><p>Delivery / handover checkpoint</p></div><span class="tag">Planned</span></div>
+    </div></div>
+    <div class="card"><div class="section-head"><h3>Open items</h3><span class="link">3 total</span></div><div class="rows">
+      <div class="row"><div class="left"><div class="ico">□</div><div><b>Review document</b><small>Updated 18 min ago</small></div></div><span>→</span></div>
+      <div class="row"><div class="left"><div class="ico">✓</div><div><b>Confirm preference</b><small>Due today</small></div></div><span>→</span></div>
+      <div class="row"><div class="left"><div class="ico">€</div><div><b>Payment milestone</b><small>Due 02 Oct</small></div></div><span>→</span></div>
+    </div></div>
+  </div>
+</section>
+
+<section class="page" id="journey">
+  <div class="card"><div class="section-head"><h3>Journey timeline</h3><button class="btn" onclick="toast('Timeline shared')">Share</button></div>
+    <div class="timeline">
+      <div class="event"><div class="date">12 SEP</div><div><b>Enquiry received</b><p>Initial requirements captured and assigned to your team.</p></div><span class="tag">Complete</span></div>
+      <div class="event"><div class="date">14 SEP</div><div><b>Scope confirmed</b><p>Requirements, preferences and commercial details agreed.</p></div><span class="tag">Complete</span></div>
+      <div class="event"><div class="date">18 SEP</div><div><b>Planning & preparation</b><p>Team is coordinating the next stage and required documents.</p></div><span class="tag">Complete</span></div>
+      <div class="event"><div class="date">TODAY</div><div><b>Final review</b><p>Three small items are waiting for your confirmation.</p></div><span class="tag pending">Current</span></div>
+      <div class="event"><div class="date">02 OCT</div><div><b>Milestone delivery</b><p>Next major checkpoint with your project team.</p></div><span class="tag">Upcoming</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="documents"><div class="card"><div class="section-head"><h3>Documents & files</h3><button class="btn dark" onclick="toast('Upload panel opened')">+ Upload</button></div><div class="list">
+  <div class="listitem"><div><b>Project brief.pdf</b><small>PDF · Updated today</small></div><span>↓</span></div>
+  <div class="listitem"><div><b>Agreement & terms.pdf</b><small>PDF · Signed</small></div><span>✓</span></div>
+  <div class="listitem"><div><b>Requirements.docx</b><small>Document · 2 days ago</small></div><span>↓</span></div>
+  <div class="listitem"><div><b>Reference materials.zip</b><small>Archive · 4 days ago</small></div><span>↓</span></div>
+</div></div></section>
+
+<section class="page" id="payments"><div class="grid"><div class="card"><div class="section-head"><h3>Payment overview</h3><span class="tag">Up to date</span></div><h2 style="font:500 38px Georgia;margin:8px 0">₹1,20,000</h2><p style="color:var(--muted);font-size:12px">Paid of ₹1,85,000 total</p><div class="progress"><i style="width:65%"></i></div><div class="rows"><div class="row"><span>Initial milestone</span><b>₹75,000 · Paid</b></div><div class="row"><span>Current milestone</span><b>₹45,000 · Paid</b></div><div class="row"><span>Final milestone</span><b>₹65,000 · Upcoming</b></div></div></div><div class="card"><h3>Next payment</h3><p style="font-size:28px;font-family:Georgia">₹65,000</p><p style="color:var(--muted);font-size:12px">Due on 02 October 2026</p><button class="btn dark" style="width:100%" onclick="toast('Payment flow opened')">View payment details</button></div></div></section>
+
+<section class="page" id="messages"><div class="card"><div class="section-head"><h3>Messages</h3><span class="tag">Team online</span></div><div class="rows">
+  <div class="row"><div class="left"><div class="avatar">A</div><div><b>Alex · Project lead</b><small>Everything is on track. I’ve added the latest update.</small></div></div><small>10:24</small></div>
+  <div class="row"><div class="left"><div class="avatar">M</div><div><b>Maya · Operations</b><small>Could you confirm the final preference?</small></div></div><small>09:12</small></div>
+  <div class="row"><div class="left"><div class="avatar">S</div><div><b>Support</b><small>Happy to help if anything is unclear.</small></div></div><small>Yesterday</small></div>
+</div><div style="display:flex;gap:8px;margin-top:15px"><input id="msg" placeholder="Write a message…" style="flex:1;border:1px solid var(--line);border-radius:10px;padding:12px"><button class="btn dark" onclick="sendMsg()">Send</button></div></div></section>
+
+<section class="page" id="operations">
+  <div class="ops"><div class="card"><div class="eyebrow">Active</div><h2 style="margin:7px 0">08</h2><small>Live journeys</small></div><div class="card"><div class="eyebrow">Upcoming</div><h2 style="margin:7px 0">11</h2><small>Next 30 days</small></div><div class="card"><div class="eyebrow">Open</div><h2 style="margin:7px 0">03</h2><small>Needs attention</small></div><div class="card"><div class="eyebrow">Completion</div><h2 style="margin:7px 0">94%</h2><small>Current cycle</small></div></div>
+  <div class="grid" style="margin-top:18px"><div class="card"><div class="section-head"><h3>Active journeys</h3><span class="link">View all</span></div><div class="list">
+    <div class="listitem"><div><b>Riyaz · Current project</b><small>Final review · 68%</small></div><span class="tag pending">Attention</span></div>
+    <div class="listitem"><div><b>Sneha & Family</b><small>Confirmed · 100%</small></div><span class="tag">On track</span></div>
+    <div class="listitem"><div><b>Arjun Nair</b><small>Planning · 20%</small></div><span class="tag">Planning</span></div>
+    <div class="listitem"><div><b>Meera James</b><small>Confirmed · 80%</small></div><span class="tag">On track</span></div>
+  </div></div><div class="card"><h3>Today</h3><div class="rows"><div class="row"><div><b>14:30 · Client call</b><small>Riyaz</small></div><span>✓</span></div><div class="row"><div><b>16:00 · Internal review</b><small>Operations</small></div><span>•</span></div><div class="row"><div><b>19:30 · Follow-up</b><small>Meera James</small></div><span>•</span></div></div></div></div>
+</section>
+</main></div>
+<div class="toast" id="toast"></div>
+<script>
+const pages=document.querySelectorAll('.page'), buttons=document.querySelectorAll('.nav button'), title=document.getElementById('title');
+function nav(id){pages.forEach(p=>p.classList.toggle('on',p.id===id));buttons.forEach(b=>b.classList.toggle('active',b.dataset.page===id));const names={overview:'Good morning, Riyaz',journey:'Your journey',documents:'Documents & files',payments:'Payments',messages:'Messages',operations:'Operations dashboard'};title.textContent=names[id]||'Workspace'}
+buttons.forEach(b=>b.onclick=()=>nav(b.dataset.page));
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>e.style.display='none',2200)}
+function sendMsg(){const x=document.getElementById('msg');if(x.value.trim()){toast('Message sent');x.value=''}}
+</script>
+</body></html>
